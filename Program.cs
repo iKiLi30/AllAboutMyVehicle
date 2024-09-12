@@ -31,9 +31,9 @@
             quoterMilegeFactor = (double)vehicleCurrentMileges / (double)vehicleAgeInYears / quoterAveregeExpectedKilomiter;
             quoterMilegeFactorPremium = quoterBaseRate / quoterMilegeFactor;
             quoterAmountForPremium = quoterAgeFactorPremium + quoterMilegeFactorPremium;
-
             quoterDiscount = (1 / (double)vehicleAgeInYears) * quoterAmountForPremium;
             quoterFinalAmountForPremium = quoterAmountForPremium - quoterDiscount;
+
             Console.WriteLine("Quotation is for 1 year from today\n");
             Console.WriteLine($"The age of vehicle is {vehicleAgeInYears}");
             Console.WriteLine($"The age of factor is  {quoterAgeFactor}");
