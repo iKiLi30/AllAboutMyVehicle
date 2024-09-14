@@ -2,8 +2,18 @@
 {
     internal class Program
     {
+        void Ternary()
+        {
+            int yearsOfNoClaims = Convert.ToInt32(Console.ReadLine());
+            string message = yearsOfNoClaims > 10 ? "Years of no claims is more than 10" : "Years of no claim is less than or eq to 10";
+            Console.WriteLine(message);
+        }
         static void Main(string[] args)
         {
+            Program program = new Program();
+
+            program.Ternary();
+
             int vehicleAgeInYears;
             int vehicleCurrentMileges;
             double quoterAveregeExpectedKilomiter = 10000;
