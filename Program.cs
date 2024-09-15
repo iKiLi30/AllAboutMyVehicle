@@ -2,6 +2,35 @@
 {
     internal class Program
     {
+
+        void Iteratioin()
+        {
+            string? repairShopID;
+            string? vehiclePolicyNumber;
+            string? claimDate;
+            double claimAmount;
+            int numberOfClaimBeingMade;
+            Console.WriteLine("How many claims are being made?\n");
+            numberOfClaimBeingMade = Convert.ToInt32(Console.ReadLine());
+
+            for (int claimCounter = 0; claimCounter < numberOfClaimBeingMade; claimCounter++)
+            {
+                Console.WriteLine("What is your repair shop id&\n");
+                repairShopID = Console.ReadLine();
+                Console.WriteLine("What is the vehicle policy number?\n");
+                vehiclePolicyNumber = Console.ReadLine();
+                Console.WriteLine("what is the amount being claimed" + " for the repiar?\n");
+                claimAmount = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("What was the date of the repiar?\n");
+                claimDate = Console.ReadLine();
+                Console.WriteLine("the datails entered for repair " + (claimCounter + 1) + " are");
+                Console.WriteLine("Repaire shop id:\t" + repairShopID);
+                Console.WriteLine("Policy number:\t" + vehiclePolicyNumber);
+                Console.WriteLine("Claim amount:\t" + claimAmount);
+                Console.WriteLine("Claim date:\t" + claimDate);
+            }
+
+        }
         void Ternary()
         {
             int yearsOfNoClaims = Convert.ToInt32(Console.ReadLine());
