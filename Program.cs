@@ -2,7 +2,43 @@
 {
     internal class Program
     {
+        void Array()
+        {
+            string[] repairShopClaims = new string[8];
+            string? repairShopID;
+            string? vehiclePolicyNumber;
+            string? claimAmount;
+            DateTime claimDate;
+            int numberOfClaimsBeingMade;
+            int numberOfClaimsEntered = 0;
+            int arrayPositionCounter = 0;
+            Console.WriteLine("How many cliams are being made?\n");
+            numberOfClaimsBeingMade = Convert.ToInt32(Console.ReadLine());
+            do
+            {
+                Console.WriteLine("The current value of the counter is: " + numberOfClaimsEntered);
+                Console.WriteLine("What is your repair shop id\n");
+                repairShopID = Console.ReadLine();
 
+                repairShopClaims[arrayPositionCounter] = repairShopID;
+                arrayPositionCounter++;
+
+                Console.WriteLine("What is the vehicle policy number?");
+                vehiclePolicyNumber = Console.ReadLine();
+
+                repairShopClaims[arrayPositionCounter] = vehiclePolicyNumber;
+                arrayPositionCounter++;
+
+                Console.WriteLine("What is the amount being claimed for repair?");
+                claimAmount = Console.ReadLine();
+
+                Console.WriteLine("What is the date of the repaire? ");
+                claimDate =  Convert.ToDateTime(Console.ReadLine());
+                repairShopClaims[arrayPositionCounter] = claimDate.ToString();
+                arrayPositionCounter++;
+                numberOfClaimsEntered++;
+            }while (numberOfClaimsEntered < numberOfClaimsBeingMade);
+        }
         void Iteratioin()
         {
             string? repairShopID;
@@ -42,6 +78,7 @@
             Program program = new Program();
 
             program.Ternary();
+            program.Iteratioin();
 
             int vehicleAgeInYears;
             int vehicleCurrentMileges;
