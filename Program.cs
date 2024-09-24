@@ -5,7 +5,7 @@ namespace AllAboutMyVehicle
 {
     public class Program
     {
-        public static class VehicleShopID
+        private static class VehicleShopID
         {
             static string[] repairShopClaims = new string[8];
             static string repairShopId;
