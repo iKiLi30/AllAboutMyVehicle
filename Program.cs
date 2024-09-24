@@ -1,7 +1,108 @@
-﻿namespace AllAboutMyVehicle
+﻿using System;
+
+
+namespace AllAboutMyVehicle
 {
-    internal class Program
+    public class Program
     {
+        public static class VehicleShopID
+        {
+            static string[] repairShopClaims = new string[8];
+            static string repairShopId;
+            static string vehiclePolicyNumber;
+            static double claimAmount;
+            static DateTime claimDate;
+            static int numberOfClaimsBeingMade;
+            static int numberOfClaimsEntered = 0;
+            static int arrayPositionCounter = 0;
+
+            public static int HowManyClaimsAreBeingMade()
+            {
+                Console.WriteLine("HowManyClaimsAreBeingMade?");
+                return Convert.ToInt32(Console.ReadLine());
+            }
+            public static void CurrentValueOfCounter()
+            {
+                Console.WriteLine("The current value is the counter is " + numberOfClaimsEntered + "\n");
+            }
+            public static string ReadRepairShopID()
+            {
+                Console.WriteLine("What is your repair shop ID?");
+                return Console.ReadLine();
+            }
+            public static void WriteRepairShopIdToArray()
+            {
+                repairShopClaims[arrayPositionCounter] = repairShopId;
+                arrayPositionCounter++;
+            }
+            public static void ReadVehiclePolicyNumber()
+            {
+                Console.WriteLine("What is vehicle policy number?");
+                vehiclePolicyNumber = Console.ReadLine();
+            }
+            public static void WriteVehiclePolicyNumberToArray()
+            {
+                repairShopClaims[arrayPositionCounter] = vehiclePolicyNumber;
+                arrayPositionCounter++;
+            }
+            public static void ReadAmountBeingClaim()
+            {
+                Console.WriteLine("What is the amount being claimed for the repair?");
+                claimAmount = Convert.ToDouble(Console.ReadLine());
+            }
+            public static void WriteClaimAmountToTheArray()
+            {
+                repairShopClaims[arrayPositionCounter] = claimAmount.ToString();
+                arrayPositionCounter++;
+            }
+            public static void ReadRepairData()
+            {
+                Console.WriteLine("What was the data of the repai?");
+                claimDate = Convert.ToDateTime(Console.ReadLine());
+            }
+            public static void WriteRepairDateToArray()
+            {
+                repairShopClaims[arrayPositionCounter] += claimDate.ToString(); 
+                arrayPositionCounter++;
+            }
+            public static void DisplayAllItemsInArray()
+                {
+                    foreach (var itemInTheClaimArray in repairShopClaims)
+                    {
+                        Console.WriteLine("The item in array is " + itemInTheClaimArray);
+                    }
+                }
+            public static void InfoFromVehicleShop()
+            {
+                do
+                {
+                    CurrentValueOfCounter();
+                    ReadRepairShopID();
+                    WriteRepairShopIdToArray();
+                    ReadVehiclePolicyNumber();
+                    ReadAmountBeingClaim();
+                    WriteClaimAmountToTheArray();
+                    WriteClaimAmountToTheArray();
+                    ReadRepairData();
+                    WriteRepairDateToArray();
+                    HowManyClaimsAreBeingMade();
+                }
+                while (numberOfClaimsEntered < numberOfClaimsBeingMade);
+            }
+        }                   
+
+        static void Main(string[] args)
+        {
+
+            Program program = new Program();
+
+            Program.VehicleShopID.InfoFromVehicleShop();
+            //program.Ternary();
+            //program.Iteratioin();
+            //program.Array();
+            //program.FirstMethod();
+            //program.YouVehicleModel();
+        }
         void Array()
         {
             string[] repairShopClaims = new string[8];
@@ -73,13 +174,8 @@
             string message = yearsOfNoClaims > 10 ? "Years of no claims is more than 10" : "Years of no claim is less than or eq to 10";
             Console.WriteLine(message);
         }
-        static void Main(string[] args)
+        void FirstMethod()
         {
-            Program program = new Program();
-
-            program.Ternary();
-            program.Iteratioin();
-
             int vehicleAgeInYears;
             int vehicleCurrentMileges;
             double quoterAveregeExpectedKilomiter = 10000;
@@ -113,13 +209,53 @@
             Console.WriteLine("Quotation is for 1 year from today\n");
             Console.WriteLine($"The age of vehicle is {vehicleAgeInYears}");
             Console.WriteLine($"The age of factor is  {quoterAgeFactor}");
-            Console.WriteLine($"The average km/year is {vehicleCurrentMileges/vehicleAgeInYears}");
+            Console.WriteLine($"The average km/year is {vehicleCurrentMileges / vehicleAgeInYears}");
             Console.WriteLine($"The mileage factor is {quoterMilegeFactor}");
             Console.WriteLine($"The quotation is {quoterFinalAmountForPremium}");
             Console.WriteLine($"The discount is {quoterDiscount}");
             Console.WriteLine($"The final discount is {quoterFinalAmountForPremium}");
+        }
+        public void YouVehicleModel()
+        {
+            string vehicleModel;
+            string vehicleManufacture;
 
-
+            Console.WriteLine();
+            Console.WriteLine("What is the model of the vehicle?\n");
+            vehicleModel = Console.ReadLine();
+            switch (vehicleModel)
+            {
+                case "Edge":
+                case "Fiesta":
+                case "Focus":
+                case "Kega":
+                case "Mondeo":
+                case "Mustang":
+                    vehicleManufacture = "Ford";
+                    break;
+                case "Astra":
+                case "Corsa":
+                case "Insignia":
+                case "Viva":
+                    vehicleManufacture = "Opel";
+                    break;
+                case "Altima":
+                case "Juke":
+                case "Sentra":
+                    vehicleManufacture = "Nissan";
+                    break;
+                case "C-Class":
+                case "E-Class":
+                case "S-Class":
+                case "GLA":
+                case "GLC":
+                case "GLE":
+                    vehicleManufacture = "Mercedes-Benz";
+                    break;
+                default:
+                    vehicleManufacture = "unknown";
+                    break;
+            }
         }
     }
 }
