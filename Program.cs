@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 
 
 namespace AllAboutMyVehicle
@@ -15,20 +16,21 @@ namespace AllAboutMyVehicle
             static int numberOfClaimsBeingMade;
             static int numberOfClaimsEntered = 0;
             static int arrayPositionCounter = 0;
+            double totalOfAllClaims = 0.00;
 
             public static int HowManyClaimsAreBeingMade()
             {
                 Console.WriteLine("HowManyClaimsAreBeingMade?");
-                return Convert.ToInt32(Console.ReadLine());
+                return numberOfClaimsBeingMade =  Convert.ToInt32(Console.ReadLine());
             }
             public static void CurrentValueOfCounter()
             {
                 Console.WriteLine("The current value is the counter is " + numberOfClaimsEntered + "\n");
             }
-            public static string ReadRepairShopID()
+            public static DateTime ReadRepairShopID()
             {
                 Console.WriteLine("What is your repair shop ID?");
-                return Console.ReadLine();
+                return Convert.ToDateTime(Console.ReadLine());
             }
             public static void WriteRepairShopIdToArray()
             {
@@ -72,10 +74,16 @@ namespace AllAboutMyVehicle
                         Console.WriteLine("The item in array is " + itemInTheClaimArray);
                     }
                 }
+            public static double AccumulateClaimAmount(double claimAmountPassedIn, double totalOfAllClaims)
+            {
+                totalOfAllClaims += claimAmountPassedIn;
+                return totalOfAllClaims;
+            }
             public static void InfoFromVehicleShop()
             {
                 do
                 {
+                    AccumulateClaimAmoun();
                     CurrentValueOfCounter();
                     ReadRepairShopID();
                     WriteRepairShopIdToArray();
@@ -93,7 +101,6 @@ namespace AllAboutMyVehicle
 
         static void Main(string[] args)
         {
-
             Program program = new Program();
 
             Program.VehicleShopID.InfoFromVehicleShop();
@@ -103,6 +110,8 @@ namespace AllAboutMyVehicle
             //program.FirstMethod();
             //program.YouVehicleModel();
         }
+
+       
         void Array()
         {
             string[] repairShopClaims = new string[8];
